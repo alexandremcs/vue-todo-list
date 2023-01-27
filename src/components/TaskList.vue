@@ -1,9 +1,10 @@
 <template>
   <ul class="todo-list">
-    <li class="todo" v-for="(todo, index) in sortedTasks" v-bind:key="index">
+    <li v-for="todo in sortedTasks" class="todo">
         <div class="view">
-            <input type="checkbox" class="toggle" @click="completeTask(todo)" >
-            <label v-bind:class="{ 'todo-completed': todo.completed }">{{ todo.title }}</label>
+            <input type="checkbox" class="toggle" @click="completeTask(todo)">
+            <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
+            <label v-else >{{ todo.title }}</label>
         </div>
     </li>
   </ul>
@@ -20,6 +21,11 @@ export default {
                 if (a.title > b.title) return 1
                 return 0
             })
+        }
+    },
+    methods: {
+        completeTask (task) {
+            task.completed = !task.completed
         }
     }
 }

@@ -2,6 +2,8 @@
   <section class="todoapp">
     <header class="header">
       <h1>Tarefas</h1>
+	  <div v-show="new Date().getHours() <= 17">Bom dia!</div>
+	  <div v-show="new Date().getHours() > 17">Boa noite!</div>
       <input-task @newTask="addTask"></input-task>
 	  <task-list v-bind:todo-list="tasks"></task-list>
     </header>
