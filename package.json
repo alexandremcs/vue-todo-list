@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "unit": "NODE_ENV=testing karma start test/unit/karma.conf.js--single-run"
   },
   "dependencies": {
     "chai": "^4.3.7",
@@ -17,6 +18,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
     "mocha": "^3.1.0",
+    "sinon": "^1.17.3",
     "vue": "^2.5.2"
   },
   "devDependencies": {
