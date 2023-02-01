@@ -12,6 +12,7 @@
     "test": "NODE_ENV=testing npm run unit"
   },
   "dependencies": {
+<<<<<<< HEAD
     "awesome-mask": "^0.3.5",
     "babel-polyfill": "^6.23.0",
     "es6-promise": "^4.0.5",
@@ -60,6 +61,27 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
+=======
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.22.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-plugin-transform-vue-jsx": "^3.5.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-stage-2": "^6.22.0",
+    "chalk": "^2.0.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+>>>>>>> parent of 5bf0dc5 (Instalando dependências para executar testes)
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "lolex": "^1.4.0",
