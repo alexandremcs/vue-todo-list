@@ -1,6 +1,6 @@
 <template>
   <ul class="todo-list">
-    <li v-for="todo in sortedTasks" class="todo" v-bind:key=todo.title>
+    <li v-for="todo in sortedTasks" class="todo">
         <div class="view">
             <input type="checkbox" class="toggle" @click="completeTask(todo)">
             <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
