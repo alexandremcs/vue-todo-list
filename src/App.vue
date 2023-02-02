@@ -1,36 +1,52 @@
 <template>
   <section class="todoapp">
     <header class="header">
-      <h1>Tarefas</h1>
-	  <div v-show="new Date().getHours() <= 17">Bom dia!</div>
-	  <div v-show="new Date().getHours() > 17">Boa noite!</div>
-      <input-task @newTask="addTask"></input-task>
-	  <task-list v-bind:todo-list="tasks"></task-list>
-	  <router-link class="cep" to="/cep">Verificar CEP</router-link>
+      <h1>Tarefas</h1>	  
     </header>
+	<input-task></input-task>
+	<task-list v-bind:todo-list="tasks"></task-list>
+	<router-link class="cep" to="/cep">Verificar CEP</router-link>
   </section>
 </template>
 
 <script>
 /* eslint-disable */
-import InputTask from './components/InputTask.vue';
-import TaskList from './components/TaskList.vue';
+// import InputTask from './components/InputTask.vue';
+// import TaskList from './components/TaskList.vue';
 
+// export default {
+//   name: 'app',
+//   components: {
+//     InputTask,
+// 	TaskList
+//   },
+//   data () {
+// 	return {
+// 		tasks: []
+// 	}
+//   },
+//   mounted () {
+// 	this.$events.on('newTask', eventData => this.addTask(eventData))
+//   },
+//   methods: {
+// 	addTask (task) {
+// 		this.tasks.push(task)
+// 	},
+// 	broadcast (task) {
+// 		this.$events.emit('newTask', task)
+// 	}
+//   }
+// }
+import InputTask from './components/InputTask'
+import TaskList from './components/TaskList'
 export default {
   name: 'app',
   components: {
     InputTask,
-	TaskList
+    TaskList
   },
-  data () {
-	return {
-		tasks: []
-	}
-  },
-  methods: {
-	addTask (task) {
-		this.tasks.push(task)
-	}
+  mounted () {
+    this.$events.on('newTask', eventData => this.addTask(eventData))
   }
 }
 </script>

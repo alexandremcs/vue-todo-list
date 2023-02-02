@@ -2,12 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import VueRouter from 'vue-router'
-
 
 // ========================
 // Routes
 // ========================
+import VueRouter from 'vue-router'
 import routes from './routes'
 
 Vue.use(VueRouter)
@@ -24,17 +23,22 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 
-Vue.config.productionTip = false
+// ========================
+// Plugin Events
+// ========================
+import VueEvents from './plugins/events'
+
+Vue.use(VueEvents)
 
 /* eslint-disable no-new */
 new Vue({
   router,
   el: '#app',
-  components: { App },
   template: `
     <div id="app">
       <transition name="fade" mode="out-in">
         <router-view class="view"></router-view>
       </transition>
-    </div>`
+    </div>`,    
+  components: { App }
 })
