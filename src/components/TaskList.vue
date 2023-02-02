@@ -1,16 +1,20 @@
+// eslint-disable
 <template>
   <ul class="todo-list">
-    <li v-for="todo in sortedTasks" class="todo">
-        <div class="view">
-            <input type="checkbox" class="toggle" @click="completeTask(todo)">
-            <label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
-            <label v-else >{{ todo.title }}</label>
-        </div>
-    </li>
+	<transition-group name="fade">
+		<li v-for="todo in sortedTasks" class="todo" v-bind:key="todo.title">
+			<div class="view">
+				<input type="checkbox" class="toggle" @click="completeTask(todo)">
+				<label v-if="todo.completed" class="todo-completed">{{ todo.title }}</label>
+				<label v-else >{{ todo.title }}</label>
+			</div>
+		</li>
+	</transition-group>
   </ul>
 </template>
 
 <script>
+/* eslint-disable */
 export default {
     props: ['todoList'],
     computed: {
@@ -121,6 +125,15 @@ export default {
 .todo-list li.editing:last-child {
 	margin-bottom: -1px;
 }
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .5s
+}
+
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
 /*
 	Hack to remove background from Mobile Safari.
 	Can't use it globally since it destroys checkboxes in Firefox

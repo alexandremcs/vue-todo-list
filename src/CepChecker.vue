@@ -1,21 +1,48 @@
 <template>
   <section class="cepChecker">
     <label>Digite seu CEP</label>
-    <input type="text" />
+    <input v-mask="'99999-999'" @blur="checkCep" type="text" />
+    <router-link class="home" to="/">Ver tarefas</router-link>
+    <div v-show="hasAddress()">
+      <p>Rua: {{ address.logradouro }}</p>
+      <p>Bairro: {{ address.bairro }}</p>
+      <p>Cidade: {{ address.cidade }}</p>
+      <p>Esatado: {{ address.estado }}</p>
+    </div>
   </section>
 </template>
 
 <script>
+import AwesomeMask from 'awesome-mask'
+
 export default {
     data () {
         return {
-
+          address: {}
         }
+    },
+    methods: {
+      checkCep ($event) {
+        let cep = $event.target.value
+        this.$http.get(`http://api.postmon.com.br/v1/cep/${cep}`)
+          .then((res) => {
+            this.address = res.body
+            console.log(this.address)
+          }, (res) => {
+            console.log(res)
+          })
+      },
+      hasAddress () {
+        return Object.keys(this.address).length > 0
+      }
+    },
+    directives: {
+      'mask': AwesomeMask
     }
 }
 </script>
 
-<style lang="less">
+<style>
 .home{
   text-decoration: none;
   font-size: 16px;
@@ -26,13 +53,13 @@ export default {
 .cepChecker{
   margin: 20px 0;
   text-align: center;
-  label{
+}
+label{
     display: block;
-  }
-  input{
+}
+input{
     margin: 20px;
     height: 2em;
     padding: 2px;
-  }
 }
 </style>

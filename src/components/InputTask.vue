@@ -1,15 +1,20 @@
 <template>
   <div>
-    <input type="text" class="new-todo"
+    <input v-focus="true" type="text" class="new-todo"
         @keyup.enter="addTask"
         placeholder="Qual tarefa você tem que fazer?">
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import { Task } from '../models/Task';
+import Focus from '../directives/focus'
 
 export default {
+	directives: {
+		'focus': Focus
+	},
     data () {
         return {
 

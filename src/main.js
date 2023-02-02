@@ -3,6 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+
+
+// ========================
+// Routes
+// ========================
 import routes from './routes'
 
 Vue.use(VueRouter)
@@ -11,6 +16,13 @@ const router = new VueRouter ({
   mode: 'history',
   routes
 })
+
+// ========================
+// Resource
+// ========================
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
 
 Vue.config.productionTip = false
 
@@ -21,6 +33,8 @@ new Vue({
   components: { App },
   template: `
     <div id="app">
-      <router-view class="view"></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view class="view"></router-view>
+      </transition>
     </div>`
 })

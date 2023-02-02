@@ -6,11 +6,13 @@
 	  <div v-show="new Date().getHours() > 17">Boa noite!</div>
       <input-task @newTask="addTask"></input-task>
 	  <task-list v-bind:todo-list="tasks"></task-list>
+	  <router-link class="cep" to="/cep">Verificar CEP</router-link>
     </header>
   </section>
 </template>
 
 <script>
+/* eslint-disable */
 import InputTask from './components/InputTask.vue';
 import TaskList from './components/TaskList.vue';
 
