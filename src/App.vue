@@ -6,6 +6,9 @@
 	<input-task></input-task>
 	<task-list v-bind:todo-list="tasks"></task-list>
 	<router-link class="cep" to="/cep">Verificar CEP</router-link>
+	<footer-todo>
+		<p>ToDo List MIT License</p>
+	</footer-todo>
   </section>
 </template>
 
@@ -39,11 +42,14 @@
 // }
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
+import FooterTodo from './components/FooterTodo.vue'
+
 export default {
   name: 'app',
   components: {
     InputTask,
-    TaskList
+    TaskList,
+	FooterTodo
   },
   mounted () {
     this.$events.on('newTask', eventData => this.addTask(eventData))
