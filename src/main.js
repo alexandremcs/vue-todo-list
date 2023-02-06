@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 
 // ========================
+// Store
+// ========================
+import store from './store'
+
+// ========================
 // Routes
 // ========================
 import VueRouter from 'vue-router'
@@ -32,6 +37,7 @@ Vue.use(VueEvents)
 
 /* eslint-disable no-new */
 new Vue({
+  store,
   router,
   el: '#app',
   template: `
