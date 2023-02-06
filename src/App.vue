@@ -4,7 +4,7 @@
       <h1>Tarefas</h1>	  
     </header>
 	<input-task></input-task>
-	<task-list v-bind:todo-list="tasks"></task-list>
+	<task-list></task-list>
 	<router-link class="cep" to="/cep">Verificar CEP</router-link>
 	<footer-todo>
 		<p>ToDo List MIT License</p>
@@ -13,33 +13,7 @@
 </template>
 
 <script>
-/* eslint-disable */
-// import InputTask from './components/InputTask.vue';
-// import TaskList from './components/TaskList.vue';
 
-// export default {
-//   name: 'app',
-//   components: {
-//     InputTask,
-// 	TaskList
-//   },
-//   data () {
-// 	return {
-// 		tasks: []
-// 	}
-//   },
-//   mounted () {
-// 	this.$events.on('newTask', eventData => this.addTask(eventData))
-//   },
-//   methods: {
-// 	addTask (task) {
-// 		this.tasks.push(task)
-// 	},
-// 	broadcast (task) {
-// 		this.$events.emit('newTask', task)
-// 	}
-//   }
-// }
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
 import FooterTodo from './components/FooterTodo.vue'
@@ -50,9 +24,6 @@ export default {
     InputTask,
     TaskList,
 	FooterTodo
-  },
-  mounted () {
-    this.$events.on('newTask', eventData => this.addTask(eventData))
   }
 }
 </script>

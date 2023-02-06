@@ -1,8 +1,10 @@
 <template>
   <div>
-    <input v-focus="true" type="text" class="new-todo"
-        @keyup.enter="addTask"
-        placeholder="Qual tarefa você tem que fazer?">
+	<transition appear name="fade">
+		<input v-focus="true" class="new-todo"
+			@keyup.enter="addTask"
+			placeholder="Qual tarefa deve ser feita?">
+	</transition>
   </div>
 </template>
 
@@ -15,20 +17,22 @@ export default {
 	directives: {
 		'focus': Focus
 	},
-    data () {
-        return {
-
-        }
-    },
     methods: {
         addTask ($event) {
             let value = $event.target.value
-            let task = new Task()
-            task.completed = false
-            task.title = value
-            this.$emit('newTask', task)
-			$event.target.value = ''
-        }
+            let task = this.createTask(value)
+			this.$store.commit('addTask', { task })
+			this.clearField($event)
+        },
+		createTask (value) {
+			let task = new Task()
+			task.completed = false
+			task.title = value
+			return task
+		},
+		clearField () {
+			this.$el.querySelector('input').value = ''
+		}
     }
 }
 </script>
