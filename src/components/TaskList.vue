@@ -2,7 +2,7 @@
 	<ul class="todo-list">
 	  <transition-group name="fade">
 	   <li v-for="(todo, index) in sortedTasks"
-		 class="todo" :key="index">
+		 class="todo" :key="todo.title">
 		 <div class="view">
 			<input class="toggle" @click="completeTask(todo)" type="checkbox">
 			<label  v-bind:class="{ 'todo-completed': todo.completed }" >{{ todo.title }}</label>
