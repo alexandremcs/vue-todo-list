@@ -11,6 +11,8 @@
 	 </transition-group>
 	 </ul>
   </template>
+
+  
   
   <script>
 	export default {
